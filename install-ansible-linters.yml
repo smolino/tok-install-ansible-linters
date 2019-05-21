@@ -1,0 +1,13 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Install Ansible and YAML linters
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  vars:
+    ansible_linters_repo_path: "{{ lookup('ENV', 'PWD') }}"
+
+  roles:
+    - ansible-linters
+...
